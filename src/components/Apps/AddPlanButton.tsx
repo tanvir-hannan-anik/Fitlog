@@ -13,35 +13,45 @@ interface AddPlanButtonProps {
 const AddPlanButton = ({ fitlog }: AddPlanButtonProps) => {
     const { addPlan, setAddPlan } = useFitLog();
 
+    const isPlanFull = addPlan.length >= 5;
+
+    const isAlreadyAdded = addPlan.some(
+        (plan) => plan.id === fitlog.id
+    );
+
     const handleAddPlan = () => {
-        // Maximum 5 workouts
+        // Already added
+        if (isAlreadyAdded) {
+            toast.info(`${fitlog.name} is already in today's plan!`);
+            return;
+        }
+
+        // Plan limit reached
         if (addPlan.length >= 5) {
-            toast.error("You can add maximum 5 workouts!");
+            toast.warning("You can add a maximum of 5 lifts to today's plan!");
             return;
         }
 
-        // Check duplicate workout
-        const alreadyAdded = addPlan.some(
-            (plan) => plan.id === fitlog.id
-        );
-
-        if (alreadyAdded) {
-            toast.warning("This workout is already in your plan!");
-            return;
-        }
-
-        // Add workout
         setAddPlan((prev) => [...prev, fitlog]);
 
-        toast.success(`${fitlog.name} added successfully!`);
+        toast.success(`${fitlog.name} added to today's plan!`);
     };
 
     return (
         <button
             onClick={handleAddPlan}
-            className="bg-[#caff00] hover:bg-[#b9ed00] text-black px-5 py-3 rounded-lg text-xs font-bold transition"
+            disabled={isPlanFull || isAlreadyAdded}
+            className={`px-5 py-3 rounded-lg text-xs font-bold transition ${
+                isPlanFull || isAlreadyAdded
+                    ? "cursor-not-allowed bg-[#292d35] text-gray-500"
+                    : "bg-[#caff00] text-black hover:bg-[#b9ed00]"
+            }`}
         >
-            Add to todays plan
+            {isAlreadyAdded
+                ? "Already Added"
+                : isPlanFull
+                ? "Plan Full (5/5)"
+                : "Add to today's plan"}
         </button>
     );
 };
