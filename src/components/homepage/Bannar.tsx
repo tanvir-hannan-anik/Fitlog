@@ -34,7 +34,7 @@ const Bannar = () => {
             alt="bannar"
             width={400}
             height={600}
-            className="w-[220px] md:w-[400px] h-auto"
+            className="w-55 md:w-100 h-auto"
         />
     </div>
 

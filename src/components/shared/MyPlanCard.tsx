@@ -67,7 +67,7 @@ const MyPlanCard = ({
                 <div className="flex min-w-0 items-center gap-3">
 
                     {/* Image */}
-                    <div className="relative h-[58px] w-[102px] md:h-[58px] md:w-[102px] shrink-0 overflow-hidden rounded-lg">
+                    <div className="relative h-14.5 w-25.5 md:h-14.5 md:w-25.5 shrink-0 overflow-hidden rounded-lg">
 
                         <Image
                             src={image}
