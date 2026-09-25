@@ -4,6 +4,7 @@ import React, { useMemo, useState } from "react";
 
 import { useFitLog } from "@/context/FitLogContex";
 import MyPlanCard from "@/components/shared/MyPlanCard";
+import Link from "next/link";
 
 const MyPlanPage = () => {
     const {
@@ -164,11 +165,10 @@ const MyPlanPage = () => {
                             onClick={() =>
                                 setActiveTab("today")
                             }
-                            className={`px-4 py-2 rounded-md text-[10px] font-semibold transition ${
-                                activeTab === "today"
-                                    ? "bg-[#252a33] text-white"
-                                    : "text-gray-500 hover:text-gray-300"
-                            }`}
+                            className={`px-4 py-2 rounded-md text-[10px] font-semibold transition ${activeTab === "today"
+                                ? "bg-[#252a33] text-white"
+                                : "text-gray-500 hover:text-gray-300"
+                                }`}
                         >
                             Todays Plan
                         </button>
@@ -178,11 +178,10 @@ const MyPlanPage = () => {
                             onClick={() =>
                                 setActiveTab("saved")
                             }
-                            className={`px-4 py-2 rounded-md text-[10px] font-semibold transition ${
-                                activeTab === "saved"
-                                    ? "bg-[#252a33] text-white"
-                                    : "text-gray-500 hover:text-gray-300"
-                            }`}
+                            className={`px-4 py-2 rounded-md text-[10px] font-semibold transition ${activeTab === "saved"
+                                ? "bg-[#252a33] text-white"
+                                : "text-gray-500 hover:text-gray-300"
+                                }`}
                         >
                             Saved
                         </button>
@@ -246,15 +245,22 @@ const MyPlanPage = () => {
 
                         ) : (
 
-                            <div className="border border-[#242831] bg-[#111419] rounded-xl py-16 text-center">
+                            <div className="rounded-xl border border-[#242831] bg-[#111419] py-16 text-center">
 
-                                <p className="text-sm text-gray-500">
-                                    No workouts added to your plan yet.
+                                <h2 className="text-lg font-extrabold uppercase tracking-wide text-white">
+                                    NOTHING HERE YET
+                                </h2>
+
+                                <p className="mx-auto mt-2 max-w-sm text-xs leading-5 text-gray-500">
+                                    Browse the library and add a lift to get today moving.
                                 </p>
 
-                                <p className="text-xs text-gray-600 mt-2">
-                                    Go to the workout library and add some exercises.
-                                </p>
+                                <Link
+                                    href="/workouts"
+                                    className="mt-6 inline-flex rounded-lg bg-[#caff00] px-5 py-3 text-xs font-bold text-black transition hover:bg-[#b9ed00]"
+                                >
+                                    Go to workouts
+                                </Link>
 
                             </div>
 
@@ -287,16 +293,22 @@ const MyPlanPage = () => {
                             ))
 
                         ) : (
+                            <div className="rounded-xl border border-[#242831] bg-[#111419] py-16 text-center">
 
-                            <div className="border border-[#242831] bg-[#111419] rounded-xl py-16 text-center">
+                                <h2 className="text-lg font-extrabold uppercase tracking-wide text-white">
+                                    NOTHING HERE YET
+                                </h2>
 
-                                <p className="text-sm text-gray-500">
-                                    No saved workouts yet.
+                                <p className="mx-auto mt-2 max-w-sm text-xs leading-5 text-gray-500">
+                                    Browse the library and add a lift to get today moving.
                                 </p>
 
-                                <p className="text-xs text-gray-600 mt-2">
-                                    Save a workout to see it here.
-                                </p>
+                                <Link
+                                    href="/workouts"
+                                    className="mt-6 inline-flex rounded-lg bg-[#caff00] px-5 py-3 text-xs font-bold text-black transition hover:bg-[#b9ed00]"
+                                >
+                                    Go to workouts
+                                </Link>
 
                             </div>
 
