@@ -1,6 +1,7 @@
 # 🏋️ FitLog
 
 FitLog is a modern, dark-themed workout management web application designed to help users discover workouts, build their daily workout plan, save exercises for later, and track completed workouts.
+URL: https://fitlog-murex-seven.vercel.app/
 
 ## 🚀 Technologies Used
 
