@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️ FitLog
 
-## Getting Started
+FitLog is a modern, dark-themed workout management web application designed to help users discover workouts, build their daily workout plan, save exercises for later, and track completed workouts.
 
-First, run the development server:
+## 🚀 Technologies Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js** – React framework for building the application
+- **TypeScript** – Type-safe JavaScript development
+- **Tailwind CSS** – Responsive and modern UI styling
+- **DaisyUI** – Pre-built UI components
+- **React Context API** – Global workout plan and saved workout state management
+- **Lucide React** – Modern icons
+- **React Toastify** – Success, warning, and notification messages
+- **Next/Image** – Optimized image rendering
+- **REST API** – Fetching workout data from an external API
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. 🏋️ Workout Library
+Browse a collection of workouts with information such as:
+- Exercise name
+- Muscle groups
+- Equipment
+- Duration
+- Calories burned
+- Rating
+- Difficulty
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. 📋 Today's Workout Plan
+Users can add workouts to their daily plan and manage their selected exercises.
 
-## Learn More
+- Maximum **5 lifts** can be added to today's plan
+- Duplicate workouts cannot be added
+- Plan count updates dynamically in the navbar
 
-To learn more about Next.js, take a look at the following resources:
+### 3. 🔖 Save Workouts
+Users can save workouts for later.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Save and unsave workouts
+- Saved workout count updates automatically
+- Saved workouts are available from the My Plan section
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. ✅ Workout Completion & Management
+Users can manage their planned workouts directly from the My Plan page.
 
-## Deploy on Vercel
+- Mark workouts as completed
+- Completion status updates instantly
+- Remove workouts from the plan
+- Toast notifications provide feedback for user actions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5. 📊 My Plan & Sorting
+The My Plan page provides an overview of the user's selected workouts.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Total exercises
+- Total workout duration
+- Total calories
+- Today's Plan and Saved tabs
+- Sort workouts by duration, calories, or rating
+
+## 📁 Project Structure
+
+```text
+src/
+├── app/
+│   ├── workouts/
+│   ├── my-plan/
+│   └── page.tsx
+│
+├── components/
+│   ├── Apps/
+│   │   ├── AddPlanButton.tsx
+│   │   └── SavedButton.tsx
+│   │
+│   ├── homepage/
+│   └── shared/
+│       ├── Navbar.tsx
+│       ├── PlanCounter.tsx
+│       ├── FitlogCard.tsx
+│       └── MyPlanCard.tsx
+│
+├── context/
+│   └── FitLogContex.tsx
+│
+├── lib/
+│   └── fitlog.ts
+│
+└── types/
+    └── fitlogTypes.ts
